@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DBSV Studios — Produção profissional de som e vídeo para empresas, lojas e marcas. Vídeos promocionais, fotografias, gravação e edição de áudio. Contacte-nos hoje." />
+  <meta name="keywords" content="produção vídeo, produção som, vídeos para empresas, fotografias profissionais, produção audiovisual, marketing vídeo, DBSV Studios, publicidade vídeo, gravação áudio" />
+  <meta name="author" content="DBSV Studios" />
+  <meta property="og:title" content="DBSV Studios — Som &amp; Vídeo Profissional" />
+  <meta property="og:description" content="Damos voz e imagem à sua marca. Produção de som e vídeo para empresas modernas." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=1200" />
+  <title>DBSV Studios — Som &amp; Vídeo Profissional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #080808;
+      --bg2: #0f0f0f;
+      --bg3: #141414;
+      --gold: #c9a84c;
+      --gold2: #e8c96e;
+      --gold-dim: rgba(201,168,76,0.12);
+      --white: #f5f0e8;
+      --grey: #8a8a8a;
+      --grey2: #3a3a3a;
+      --red: #c94c4c;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-serif: 'DM Serif Display', serif;
+      --font-body: 'Outfit', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 300;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* CUSTOM CURSOR */
+    .cursor { position: fixed; width: 10px; height: 10px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: transform 0.1s; mix-blend-mode: difference; }
+    .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1.5px solid var(--gold); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: transform 0.15s ease, width 0.2s, height 0.2s; }
+    .cursor-ring.expand { width: 54px; height: 54px; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 5%;
+      transition: background 0.4s, padding 0.3s;
+    }
+    nav.scrolled { background: rgba(8,8,8,0.92); backdrop-filter: blur(12px); padding: 12px 5%; border-bottom: 1px solid var(--grey2); }
+    .nav-logo { font-family: var(--font-display); font-size: 2rem; letter-spacing: 3px; color: var(--white); text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--grey); font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { background: var(--gold); color: var(--bg); padding: 10px 24px; font-family: var(--font-body); font-weight: 600; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; border: none; cursor: none; transition: background 0.2s, transform 0.15s; text-decoration: none; }
+    .nav-cta:hover { background: var(--gold2); transform: translateY(-1px); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: none; background: none; border: none; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--white); transition: 0.3s; }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh; position: relative; display: flex; align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1800&q=80') center/cover no-repeat;
+      filter: brightness(0.25);
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(8,8,8,0.8) 0%, transparent 60%, rgba(8,8,8,0.7) 100%);
+    }
+    .hero-grain {
+      position: absolute; inset: 0; opacity: 0.04; z-index: 1;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+    .hero-content { position: relative; z-index: 2; padding: 0 5%; max-width: 900px; }
+    .hero-tag { display: inline-block; color: var(--gold); font-size: 0.75rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; opacity: 0; animation: fadeUp 0.8s 0.3s forwards; }
+    .hero-title { font-family: var(--font-display); font-size: clamp(4rem, 12vw, 10rem); line-height: 0.92; letter-spacing: 2px; margin-bottom: 28px; opacity: 0; animation: fadeUp 0.8s 0.5s forwards; }
+    .hero-title em { font-style: italic; font-family: var(--font-serif); color: var(--gold); }
+    .hero-sub { font-size: clamp(1rem, 2vw, 1.2rem); color: #b0a898; max-width: 520px; line-height: 1.7; margin-bottom: 44px; opacity: 0; animation: fadeUp 0.8s 0.7s forwards; }
+    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s 0.9s forwards; }
+    .btn-primary { background: var(--gold); color: var(--bg); padding: 16px 36px; font-weight: 700; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: all 0.2s; border: 2px solid var(--gold); }
+    .btn-primary:hover { background: transparent; color: var(--gold); }
+    .btn-secondary { background: transparent; color: var(--white); padding: 16px 36px; font-weight: 500; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; border: 2px solid rgba(245,240,232,0.3); transition: all 0.2s; }
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+    .hero-scroll { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--grey); font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; animation: pulse 2s infinite; }
+    .hero-scroll::after { content: ''; display: block; width: 1px; height: 50px; background: linear-gradient(to bottom, var(--gold), transparent); }
+    .hero-stats { position: absolute; right: 5%; bottom: 80px; z-index: 2; display: flex; flex-direction: column; gap: 24px; opacity: 0; animation: fadeLeft 0.8s 1.2s forwards; }
+    .stat { text-align: right; }
+    .stat-num { font-family: var(--font-display); font-size: 2.8rem; color: var(--gold); line-height: 1; }
+    .stat-label { font-size: 0.7rem; color: var(--grey); letter-spacing: 2px; text-transform: uppercase; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeLeft { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+
+    /* SECTION BASE */
+    section { padding: 100px 5%; }
+    .section-tag { font-size: 0.72rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+    .section-title { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1; margin-bottom: 20px; }
+    .section-title em { font-style: italic; font-family: var(--font-serif); color: var(--gold); }
+    .section-sub { color: var(--grey); max-width: 560px; line-height: 1.8; font-size: 1rem; }
+    .divider { width: 60px; height: 2px; background: var(--gold); margin: 20px 0 40px; }
+
+    /* SERVICES */
+    #servicos { background: var(--bg2); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; margin-top: 60px; border: 1px solid var(--grey2); }
+    .service-card {
+      background: var(--bg3); padding: 48px 36px; position: relative; overflow: hidden;
+      transition: background 0.3s;
+      border-right: 1px solid var(--grey2); border-bottom: 1px solid var(--grey2);
+    }
+    .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--gold); transition: height 0.4s; }
+    .service-card:hover { background: #1a1a1a; }
+    .service-card:hover::before { height: 100%; }
+    .service-icon { font-size: 2.2rem; margin-bottom: 20px; display: block; }
+    .service-card h3 { font-family: var(--font-display); font-size: 1.6rem; letter-spacing: 1px; margin-bottom: 12px; }
+    .service-card p { color: var(--grey); font-size: 0.92rem; line-height: 1.8; margin-bottom: 20px; }
+    .service-tag { display: inline-block; font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold-dim); padding: 4px 12px; }
+    .service-num { position: absolute; top: 20px; right: 24px; font-family: var(--font-display); font-size: 4rem; color: rgba(201,168,76,0.06); line-height: 1; }
+
+    /* HOW IT WORKS */
+    #como-funciona { background: var(--bg); }
+    .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; margin-top: 60px; }
+    .process-step { padding: 40px 32px; border-left: 1px solid var(--grey2); position: relative; }
+    .process-step:first-child { border-left: none; }
+    .step-num { font-family: var(--font-display); font-size: 5rem; color: var(--gold-dim); line-height: 1; margin-bottom: 16px; }
+    .step-line { width: 30px; height: 2px; background: var(--gold); margin-bottom: 16px; }
+    .process-step h3 { font-family: var(--font-body); font-weight: 600; font-size: 1rem; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; }
+    .process-step p { color: var(--grey); font-size: 0.88rem; line-height: 1.8; }
+
+    /* VIDEO SHOWCASE */
+    #videos { background: var(--bg3); }
+    .videos-intro { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; margin-bottom: 50px; }
+    .video-grid { display: grid; grid-template-columns: repeat(12, 1fr); grid-template-rows: auto; gap: 12px; }
+    .video-item { position: relative; overflow: hidden; background: #1a1a1a; cursor: none; }
+    .video-item:nth-child(1) { grid-column: span 8; grid-row: span 2; aspect-ratio: 16/9; }
+    .video-item:nth-child(2) { grid-column: span 4; }
+    .video-item:nth-child(3) { grid-column: span 4; }
+    .video-item:nth-child(4) { grid-column: span 6; }
+    .video-item:nth-child(5) { grid-column: span 6; }
+    .video-thumb { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s, filter 0.3s; filter: brightness(0.6); display: block; }
+    .video-item:hover .video-thumb { transform: scale(1.04); filter: brightness(0.4); }
+    .video-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%); }
+    .play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0); width: 60px; height: 60px; border: 2px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform 0.3s, background 0.2s; }
+    .play-btn::after { content: ''; border-left: 18px solid var(--gold); border-top: 10px solid transparent; border-bottom: 10px solid transparent; margin-left: 4px; }
+    .video-item:hover .play-btn { transform: translate(-50%, -50%) scale(1); }
+    .video-item:hover .play-btn:hover { background: var(--gold-dim); }
+    .video-label { font-family: var(--font-display); font-size: 1.2rem; letter-spacing: 1px; color: var(--white); }
+    .video-type { font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
+
+    /* Modal Video */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 5000; align-items: center; justify-content: center; }
+    .modal-overlay.active { display: flex; }
+    .modal-box { position: relative; width: 90%; max-width: 900px; aspect-ratio: 16/9; background: #000; }
+    .modal-box iframe { width: 100%; height: 100%; border: none; }
+    .modal-close { position: absolute; top: -48px; right: 0; background: none; border: none; color: var(--white); font-size: 2rem; cursor: none; line-height: 1; }
+    .modal-close:hover { color: var(--gold); }
+
+    /* SOM / AUDIO */
+    #som { background: var(--bg2); }
+    .audio-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .audio-visual { position: relative; }
+    .audio-img { width: 100%; aspect-ratio: 4/5; object-fit: cover; filter: brightness(0.7) saturate(0.6); }
+    .audio-badge { position: absolute; bottom: -20px; right: -20px; background: var(--gold); color: var(--bg); padding: 24px; font-family: var(--font-display); font-size: 1.2rem; letter-spacing: 1px; text-align: center; line-height: 1.2; }
+    .audio-features { display: flex; flex-direction: column; gap: 24px; margin-top: 36px; }
+    .audio-feat { display: flex; gap: 16px; align-items: flex-start; }
+    .feat-icon { width: 42px; height: 42px; border: 1px solid var(--gold-dim); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .feat-text h4 { font-size: 0.9rem; font-weight: 600; letter-spacing: 1px; margin-bottom: 4px; text-transform: uppercase; }
+    .feat-text p { font-size: 0.85rem; color: var(--grey); line-height: 1.7; }
+
+    /* WAVEFORM ANIMATION */
+    .waveform { display: flex; align-items: center; gap: 3px; height: 40px; margin: 28px 0; }
+    .waveform span { display: block; width: 4px; background: var(--gold); border-radius: 2px; animation: wave 1.2s ease-in-out infinite; }
+    .waveform span:nth-child(1) { height: 14px; animation-delay: 0s; }
+    .waveform span:nth-child(2) { height: 28px; animation-delay: 0.1s; }
+    .waveform span:nth-child(3) { height: 20px; animation-delay: 0.2s; }
+    .waveform span:nth-child(4) { height: 36px; animation-delay: 0.3s; }
+    .waveform span:nth-child(5) { height: 22px; animation-delay: 0.4s; }
+    .waveform span:nth-child(6) { height: 32px; animation-delay: 0.5s; }
+    .waveform span:nth-child(7) { height: 16px; animation-delay: 0.6s; }
+    .waveform span:nth-child(8) { height: 26px; animation-delay: 0.7s; }
+    .waveform span:nth-child(9) { height: 18px; animation-delay: 0.8s; }
+    .waveform span:nth-child(10) { height: 30px; animation-delay: 0.9s; }
+    .waveform span:nth-child(11) { height: 12px; animation-delay: 1.0s; }
+    .waveform span:nth-child(12) { height: 24px; animation-delay: 1.1s; }
+    @keyframes wave { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(0.3); } }
+
+    /* PACKAGES */
+    #pacotes { background: var(--bg); }
+    .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1px; margin-top: 60px; }
+    .package { background: var(--bg2); padding: 50px 36px; position: relative; border: 1px solid var(--grey2); transition: border-color 0.3s; }
+    .package.featured { background: var(--bg3); border-color: var(--gold); }
+    .package.featured::before { content: 'MAIS POPULAR'; position: absolute; top: -1px; right: 24px; background: var(--gold); color: var(--bg); font-size: 0.65rem; letter-spacing: 3px; padding: 5px 14px; font-weight: 700; }
+    .package:hover { border-color: var(--gold); }
+    .pkg-name { font-family: var(--font-display); font-size: 1.8rem; letter-spacing: 2px; margin-bottom: 8px; }
+    .pkg-desc { color: var(--grey); font-size: 0.85rem; line-height: 1.7; margin-bottom: 28px; }
+    .pkg-price { font-family: var(--font-display); font-size: 3.5rem; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+    .pkg-price small { font-family: var(--font-body); font-size: 0.8rem; color: var(--grey); font-weight: 400; }
+    .pkg-divider { width: 40px; height: 1px; background: var(--grey2); margin: 24px 0; }
+    .pkg-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+    .pkg-features li { font-size: 0.88rem; color: #b0a898; padding-left: 20px; position: relative; line-height: 1.5; }
+    .pkg-features li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-size: 0.75rem; }
+    .pkg-features li.unavailable { color: var(--grey2); }
+    .pkg-features li.unavailable::before { content: '—'; color: var(--grey2); }
+    .btn-pkg { display: block; text-align: center; padding: 14px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; transition: all 0.2s; }
+    .btn-pkg:hover, .package.featured .btn-pkg { background: var(--gold); color: var(--bg); }
+    .pkg-note { font-size: 0.75rem; color: var(--grey); text-align: center; margin-top: 12px; letter-spacing: 1px; }
+
+    /* TESTIMONIALS */
+    #testemunhos { background: var(--bg3); overflow: hidden; }
+    .testimonials-wrapper { display: flex; gap: 24px; margin-top: 50px; overflow-x: auto; padding-bottom: 20px; scrollbar-width: none; }
+    .testimonials-wrapper::-webkit-scrollbar { display: none; }
+    .testimonial { background: var(--bg2); border: 1px solid var(--grey2); padding: 40px; min-width: 340px; max-width: 380px; flex-shrink: 0; position: relative; transition: border-color 0.3s; }
+    .testimonial:hover { border-color: var(--gold); }
+    .quote-mark { font-family: var(--font-serif); font-size: 5rem; color: var(--gold); line-height: 0.6; margin-bottom: 20px; display: block; opacity: 0.4; }
+    .testimonial p { color: #c0b9b0; font-size: 0.92rem; line-height: 1.8; margin-bottom: 28px; font-style: italic; }
+    .testimonial-author { display: flex; align-items: center; gap: 14px; }
+    .author-avatar { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); filter: grayscale(0.3); }
+    .author-avatar-placeholder { width: 46px; height: 46px; border-radius: 50%; background: var(--gold-dim); border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.2rem; color: var(--gold); }
+    .author-name { font-weight: 600; font-size: 0.88rem; letter-spacing: 1px; }
+    .author-role { font-size: 0.75rem; color: var(--grey); letter-spacing: 1px; }
+    .stars { color: var(--gold); font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 16px; }
+    .testimonials-nav { display: flex; gap: 12px; margin-top: 30px; }
+    .t-nav-btn { width: 42px; height: 42px; border: 1px solid var(--grey2); background: none; color: var(--white); font-size: 1rem; cursor: none; transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
+    .t-nav-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* CLIENTES / PARCEIROS */
+    #clientes { background: var(--bg2); padding: 60px 5%; border-top: 1px solid var(--grey2); border-bottom: 1px solid var(--grey2); }
+    .clientes-label { text-align: center; font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: var(--grey); margin-bottom: 36px; }
+    .clientes-track { display: flex; gap: 60px; align-items: center; overflow: hidden; }
+    .clientes-logos { display: flex; gap: 60px; align-items: center; animation: scrollLogos 20s linear infinite; white-space: nowrap; }
+    .client-logo { font-family: var(--font-display); font-size: 1.4rem; letter-spacing: 3px; color: var(--grey2); transition: color 0.2s; flex-shrink: 0; }
+    .client-logo:hover { color: var(--gold); }
+    @keyframes scrollLogos { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* FAQ */
+    #faq { background: var(--bg); }
+    .faq-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: start; }
+    .faq-list { display: flex; flex-direction: column; gap: 0; margin-top: 0; }
+    .faq-item { border-bottom: 1px solid var(--grey2); }
+    .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; cursor: none; }
+    .faq-q h3 { font-weight: 500; font-size: 0.95rem; line-height: 1.4; letter-spacing: 0.5px; }
+    .faq-toggle { width: 28px; height: 28px; border: 1px solid var(--grey2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.2rem; color: var(--gold); transition: transform 0.3s; }
+    .faq-item.open .faq-toggle { transform: rotate(45deg); }
+    .faq-a { display: none; padding: 0 0 20px; color: var(--grey); font-size: 0.88rem; line-height: 1.9; }
+    .faq-item.open .faq-a { display: block; }
+
+    /* CONTACT */
+    #contacto { background: var(--bg3); }
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+    .contact-info h2 { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1; margin-bottom: 24px; }
+    .contact-info h2 em { font-style: italic; font-family: var(--font-serif); color: var(--gold); }
+    .contact-info p { color: var(--grey); line-height: 1.8; margin-bottom: 40px; }
+    .contact-details { display: flex; flex-direction: column; gap: 20px; }
+    .contact-detail { display: flex; gap: 16px; align-items: center; }
+    .detail-icon { width: 42px; height: 42px; border: 1px solid var(--gold-dim); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+    .detail-info label { display: block; font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 2px; }
+    .detail-info span, .detail-info a { font-size: 0.9rem; color: var(--white); text-decoration: none; }
+    .detail-info a:hover { color: var(--gold); }
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--grey); }
+    .form-group input, .form-group select, .form-group textarea {
+      background: var(--bg2); border: 1px solid var(--grey2); color: var(--white);
+      padding: 14px 16px; font-family: var(--font-body); font-size: 0.9rem;
+      outline: none; transition: border-color 0.2s; resize: none; -webkit-appearance: none;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
+    .form-group select option { background: var(--bg2); }
+    .btn-submit { background: var(--gold); color: var(--bg); border: 2px solid var(--gold); padding: 16px 36px; font-family: var(--font-body); font-weight: 700; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; cursor: none; transition: all 0.2s; width: 100%; }
+    .btn-submit:hover { background: transparent; color: var(--gold); }
+    .form-success { display: none; background: rgba(201,168,76,0.1); border: 1px solid var(--gold); padding: 20px; color: var(--gold); text-align: center; font-size: 0.9rem; }
+
+    /* FOOTER */
+    footer { background: #050505; padding: 60px 5% 30px; border-top: 1px solid var(--grey2); }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 50px; }
+    .footer-brand .nav-logo { font-size: 2.5rem; display: block; margin-bottom: 16px; }
+    .footer-brand p { color: var(--grey); font-size: 0.85rem; line-height: 1.8; max-width: 280px; }
+    .footer-col h4 { font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { text-decoration: none; color: var(--grey); font-size: 0.85rem; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--white); }
+    .footer-socials { display: flex; gap: 12px; margin-top: 24px; }
+    .social-btn { width: 38px; height: 38px; border: 1px solid var(--grey2); display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 0.8rem; color: var(--grey); transition: all 0.2s; }
+    .social-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .footer-bottom { border-top: 1px solid var(--grey2); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 0.78rem; color: var(--grey); }
+    .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+    /* FLOATING CTA */
+    .floating-cta { position: fixed; bottom: 32px; right: 32px; z-index: 900; background: var(--gold); color: var(--bg); padding: 14px 24px; font-weight: 700; font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; box-shadow: 0 8px 30px rgba(201,168,76,0.3); transition: all 0.2s; opacity: 0; transform: translateY(20px); }
+    .floating-cta.visible { opacity: 1; transform: translateY(0); }
+    .floating-cta:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.5); }
+
+    /* SCROLL REVEAL */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.revealed { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .audio-layout, .faq-layout, .contact-layout { grid-template-columns: 1fr; gap: 50px; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .video-item:nth-child(1) { grid-column: span 12; }
+      .video-item:nth-child(2), .video-item:nth-child(3) { grid-column: span 6; }
+      .video-item:nth-child(4), .video-item:nth-child(5) { grid-column: span 6; }
+      .hero-stats { display: none; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: flex; }
+      nav.menu-open .nav-links { display: flex; flex-direction: column; position: fixed; inset: 0; background: var(--bg); align-items: center; justify-content: center; gap: 32px; z-index: 999; font-size: 1.1rem; }
+      nav.menu-open .nav-cta { display: block; }
+      .hero-title { font-size: clamp(3rem, 15vw, 6rem); }
+      section { padding: 70px 5%; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .process-step { border-left: none; border-bottom: 1px solid var(--grey2); }
+      .footer-top { grid-template-columns: 1fr; gap: 36px; }
+      .form-row { grid-template-columns: 1fr; }
+      .video-item:nth-child(2), .video-item:nth-child(3), .video-item:nth-child(4), .video-item:nth-child(5) { grid-column: span 12; }
+    }
+    @media (max-width: 480px) {
+      .packages-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- FLOATING CTA -->
+<a href="#contacto" class="floating-cta" id="floatingCta">Pedir Orçamento</a>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">DBSV<span>.</span>STUDIOS</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#">Início</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#videos">Vídeos</a></li>
+    <li><a href="#som">Som</a></li>
+    <li><a href="#pacotes">Pacotes</a></li>
+    <li><a href="#testemunhos">Clientes</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="#contacto" class="nav-cta">Contactar</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Produção Audiovisual Profissional</span>
+    <h1 class="hero-title">A sua marca<br>merece ser <em>vista</em><br>e <em>ouvida.</em></h1>
+    <p class="hero-sub">Criamos vídeos, fotografia e produção sonora que transformam a presença digital das empresas e atraem novos clientes.</p>
+    <div class="hero-buttons">
+      <a href="#servicos" class="btn-primary">Ver Serviços</a>
+      <a href="#videos" class="btn-secondary">▶ Ver Portfólio</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">200+</div><div class="stat-label">Projetos</div></div>
+    <div class="stat"><div class="stat-num">98%</div><div class="stat-label">Satisfação</div></div>
+    <div class="stat"><div class="stat-num">5+</div><div class="stat-label">Anos</div></div>
+  </div>
+</section>
+
+<!-- CLIENTES STRIP -->
+<div id="clientes">
+  <p class="clientes-label">Empresas que confiam em nós</p>
+  <div class="clientes-track">
+    <div class="clientes-logos" id="logosTrack">
+      <span class="client-logo">RESTAURANTE SOLAR</span>
+      <span class="client-logo">CLÍNICA VIDA</span>
+      <span class="client-logo">MODA NORTE</span>
+      <span class="client-logo">AUTO PREMIUM</span>
+      <span class="client-logo">FRUTARIA CENTRAL</span>
+      <span class="client-logo">GYM FORCE</span>
+      <span class="client-logo">HOTEL BELA VISTA</span>
+      <span class="client-logo">PADARIA TRADIÇÃO</span>
+      <!-- duplicated for infinite scroll -->
+      <span class="client-logo">RESTAURANTE SOLAR</span>
+      <span class="client-logo">CLÍNICA VIDA</span>
+      <span class="client-logo">MODA NORTE</span>
+      <span class="client-logo">AUTO PREMIUM</span>
+      <span class="client-logo">FRUTARIA CENTRAL</span>
+      <span class="client-logo">GYM FORCE</span>
+      <span class="client-logo">HOTEL BELA VISTA</span>
+      <span class="client-logo">PADARIA TRADIÇÃO</span>
+    </div>
+  </div>
+</div>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="reveal">
+    <p class="section-tag">O que fazemos</p>
+    <h2 class="section-title">Serviços <em>DBSV</em></h2>
+    <div class="divider"></div>
+    <p class="section-sub">Desde a captação até à entrega final — tudo tratado por nós para que a sua marca brilhe.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <span class="service-num">01</span>
+      <span class="service-icon">🎬</span>
+      <h3>Vídeo Promocional</h3>
+      <p>Vídeos curtos e impactantes para redes sociais, website e campanhas publicitárias. Storytelling visual que converte.</p>
+      <span class="service-tag">Instagram · TikTok · YouTube</span>
+    </div>
+    <div class="service-card">
+      <span class="service-num">02</span>
+      <span class="service-icon">📸</span>
+      <h3>Fotografia Profissional</h3>
+      <p>Sessões fotográficas para produto, espaço e equipa. Imagens que comunicam a identidade e o valor da sua marca.</p>
+      <span class="service-tag">Produto · Espaço · Pessoas</span>
+    </div>
+    <div class="service-card">
+      <span class="service-num">03</span>
+      <span class="service-icon">🎙️</span>
+      <h3>Produção de Som</h3>
+      <p>Gravação de locução, jingles, podcasts e audiobranding. Som profissional que reforça a identidade sonora da sua marca.</p>
+      <span class="service-tag">Jingles · Podcasts · Locução</span>
+    </div>
+    <div class="service-card">
+      <span class="service-num">04</span>
+      <span class="service-icon">✂️</span>
+      <h3>Edição &amp; Pós-Produção</h3>
+      <p>Montagem, correção de cor, efeitos e motion graphics. Transformamos imagens brutas em conteúdo polido e profissional.</p>
+      <span class="service-tag">Color Grade · VFX · Grafismo</span>
+    </div>
+    <div class="service-card">
+      <span class="service-num">05</span>
+      <span class="service-icon">📱</span>
+      <h3>Conteúdo para Redes Sociais</h3>
+      <p>Produção contínua de conteúdo adaptado a cada plataforma. Mantenha a sua presença digital ativa e atraente.</p>
+      <span class="service-tag">Reels · Stories · Posts</span>
+    </div>
+    <div class="service-card">
+      <span class="service-num">06</span>
+      <span class="service-icon">🎥</span>
+      <h3>Cobertura de Eventos</h3>
+      <p>Captação de vídeo e fotografia em eventos corporativos, inaugurações, conferências e momentos especiais.</p>
+      <span class="service-tag">Eventos · Conferências · Lançamentos</span>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="como-funciona">
+  <div class="reveal">
+    <p class="section-tag">Processo</p>
+    <h2 class="section-title">Como <em>trabalhamos</em></h2>
+    <div class="divider"></div>
+    <p class="section-sub">Um processo simples, transparente e orientado ao resultado.</p>
+  </div>
+  <div class="process-steps reveal">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="step-line"></div>
+      <h3>Primeiro Contacto</h3>
+      <p>Visitamos o seu negócio, conhecemos o espaço e percebemos o que pretende comunicar. Sem compromisso.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="step-line"></div>
+      <h3>Proposta Criativa</h3>
+      <p>Desenvolvemos uma proposta personalizada com conceito visual, plano de conteúdos e orçamento detalhado.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="step-line"></div>
+      <h3>Produção</h3>
+      <p>Captamos vídeo, foto e som com equipamento profissional. Cuidamos de cada detalhe para garantir qualidade.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <div class="step-line"></div>
+      <h3>Entrega &amp; Suporte</h3>
+      <p>Entregamos os ficheiros prontos a publicar em todos os formatos necessários. Acompanhamento contínuo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO SHOWCASE -->
+<section id="videos">
+  <div class="videos-intro reveal">
+    <div>
+      <p class="section-tag">Portfólio</p>
+      <h2 class="section-title">O nosso <em>trabalho</em></h2>
+    </div>
+    <a href="#contacto" class="btn-secondary" style="align-self:flex-end">Ver Todos os Projetos →</a>
+  </div>
+  <div class="video-grid reveal">
+    <div class="video-item" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+      <img class="video-thumb" src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=900&q=80" alt="Vídeo Restaurante Solar" loading="lazy" />
+      <div class="video-overlay">
+        <div class="play-btn"></div>
+        <span class="video-type">Vídeo Promocional</span>
+        <span class="video-label">Restaurante Solar — Campanha de Lançamento</span>
+      </div>
+    </div>
+    <div class="video-item" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+      <img class="video-thumb" src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=600&q=80" alt="Clínica Vida" loading="lazy" />
+      <div class="video-overlay">
+        <div class="play-btn"></div>
+        <span class="video-type">Institucional</span>
+        <span class="video-label">Clínica Vida</span>
+      </div>
+    </div>
+    <div class="video-item" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+      <img class="video-thumb" src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80" alt="Moda Norte" loading="lazy" />
+      <div class="video-overlay">
+        <div class="play-btn"></div>
+        <span class="video-type">Redes Sociais</span>
+        <span class="video-label">Moda Norte</span>
+      </div>
+    </div>
+    <div class="video-item" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+      <img class="video-thumb" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80" alt="Auto Premium Evento" loading="lazy" />
+      <div class="video-overlay">
+        <div class="play-btn"></div>
+        <span class="video-type">Evento</span>
+        <span class="video-label">Auto Premium — Inauguração</span>
+      </div>
+    </div>
+    <div class="video-item" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+      <img class="video-thumb" src="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?w=800&q=80" alt="GYM Force Reels" loading="lazy" />
+      <div class="video-overlay">
+        <div class="play-btn"></div>
+        <span class="video-type">Instagram Reels</span>
+        <span class="video-label">GYM Force — Série Mensal</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO MODAL -->
+<div class="modal-overlay" id="videoModal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose">✕</button>
+    <iframe id="modalIframe" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- SOM / AUDIO -->
+<section id="som">
+  <div class="audio-layout">
+    <div class="audio-visual reveal">
+      <img class="audio-img" src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=700&q=80" alt="Estúdio de gravação DBSV Studios" loading="lazy" />
+      <div class="audio-badge">ESTÚDIO<br>PROFISSIONAL</div>
+    </div>
+    <div class="audio-text reveal">
+      <p class="section-tag">Produção Sonora</p>
+      <h2 class="section-title">Som que <em>impacta</em></h2>
+      <div class="divider"></div>
+      <p class="section-sub" style="margin-bottom:0">O som é metade da experiência. Garantimos que a voz da sua marca soa exactamente como deve: clara, profissional e memorável.</p>
+      <div class="waveform">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="audio-features">
+        <div class="audio-feat">
+          <div class="feat-icon">🎵</div>
+          <div class="feat-text">
+            <h4>Jingles &amp; Identidade Sonora</h4>
+            <p>Composição e gravação de músicas e sons que ficam na memória dos seus clientes.</p>
+          </div>
+        </div>
+        <div class="audio-feat">
+          <div class="feat-icon">🎤</div>
+          <div class="feat-text">
+            <h4>Locução Profissional</h4>
+            <p>Vozes profissionais em Português Europeu para anúncios, vídeos e apresentações corporativas.</p>
+          </div>
+        </div>
+        <div class="audio-feat">
+          <div class="feat-icon">🎧</div>
+          <div class="feat-text">
+            <h4>Podcast &amp; Rádio</h4>
+            <p>Gravação, edição e masterização de podcasts e spots publicitários para rádio.</p>
+          </div>
+        </div>
+        <div class="audio-feat">
+          <div class="feat-icon">🔊</div>
+          <div class="feat-text">
+            <h4>Som Ambiente &amp; Pós-Produção</h4>
+            <p>Tratamento e mistura de áudio para vídeos, eliminação de ruído e masterização final.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACOTES -->
+<section id="pacotes">
+  <div class="reveal">
+    <p class="section-tag">Investimento</p>
+    <h2 class="section-title">Pacotes <em>simples</em></h2>
+    <div class="divider"></div>
+    <p class="section-sub">Escolha o plano certo para o seu negócio. Todos incluem diagnóstico gratuito e proposta personalizada.</p>
+  </div>
+  <div class="packages-grid reveal">
+    <div class="package">
+      <p class="pkg-name">STARTER</p>
+      <p class="pkg-desc">Para negócios que querem dar os primeiros passos na presença digital com conteúdo profissional.</p>
+      <div class="pkg-price">Sob Consulta <small><br>Orçamento personalizado</small></div>
+      <div class="pkg-divider"></div>
+      <ul class="pkg-features">
+        <li>1 Vídeo Promocional (até 60s)</li>
+        <li>10 Fotografias Profissionais</li>
+        <li>Edição e pós-produção incluídas</li>
+        <li>Formatos para redes sociais</li>
+        <li class="unavailable">Produção de som</li>
+        <li class="unavailable">Cobertura mensal</li>
+      </ul>
+      <a href="#contacto" class="btn-pkg">Pedir Orçamento</a>
+      <p class="pkg-note">Visita inicial gratuita sem compromisso</p>
+    </div>
+    <div class="package featured">
+      <p class="pkg-name">PROFISSIONAL</p>
+      <p class="pkg-desc">O pacote completo para empresas que querem uma presença digital consistente e impactante.</p>
+      <div class="pkg-price">Sob Consulta <small><br>Orçamento personalizado</small></div>
+      <div class="pkg-divider"></div>
+      <ul class="pkg-features">
+        <li>3 Vídeos Mensais (Reels + Promo)</li>
+        <li>30 Fotografias Mensais</li>
+        <li>Produção de som (jingle ou locução)</li>
+        <li>Pós-produção completa</li>
+        <li>Todos os formatos digitais</li>
+        <li class="unavailable">Cobertura de evento</li>
+      </ul>
+      <a href="#contacto" class="btn-pkg">Pedir Orçamento</a>
+      <p class="pkg-note">Proposta enviada em 48 horas</p>
+    </div>
+    <div class="package">
+      <p class="pkg-name">PREMIUM</p>
+      <p class="pkg-desc">Solução total para marcas que exigem excelência audiovisual e máxima cobertura.</p>
+      <div class="pkg-price">Sob Consulta <small><br>Orçamento personalizado</small></div>
+      <div class="pkg-divider"></div>
+      <ul class="pkg-features">
+        <li>Conteúdo mensal ilimitado</li>
+        <li>Fotografia profissional contínua</li>
+        <li>Produção sonora completa</li>
+        <li>Cobertura de 1 evento por mês</li>
+        <li>Gestão de redes sociais (opcional)</li>
+        <li>Relatório mensal de performance</li>
+      </ul>
+      <a href="#contacto" class="btn-pkg">Pedir Orçamento</a>
+      <p class="pkg-note">Contrato anual com desconto</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTEMUNHOS -->
+<section id="testemunhos">
+  <div class="reveal">
+    <p class="section-tag">Clientes</p>
+    <h2 class="section-title">O que dizem <em>sobre nós</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="testimonials-wrapper reveal" id="testimonialsWrapper">
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <span class="quote-mark">"</span>
+      <p>Desde que a DBSV Studios criou os nossos vídeos para o Instagram, as reservas aumentaram visivelmente. O conteúdo é fantástico e a equipa percebe mesmo o que queremos transmitir.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar-placeholder">MF</div>
+        <div>
+          <div class="author-name">Maria Ferreira</div>
+          <div class="author-role">Proprietária — Restaurante Solar</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <span class="quote-mark">"</span>
+      <p>Profissionalismo de outro nível. Vieram ao nosso espaço, fizeram um trabalho excecional e entregaram tudo dentro do prazo. O jingle que criaram para nós ficou no ouvido dos clientes.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar-placeholder">JC</div>
+        <div>
+          <div class="author-name">João Costa</div>
+          <div class="author-role">Diretor — Clínica Vida</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <span class="quote-mark">"</span>
+      <p>Fui abordado pela DBSV sem compromisso, aceitei ver os resultados e fiquei impressionado. Hoje temos conteúdo consistente todos os meses e os clientes comentam sempre.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar-placeholder">RS</div>
+        <div>
+          <div class="author-name">Rui Santos</div>
+          <div class="author-role">Gerente — Auto Premium</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <span class="quote-mark">"</span>
+      <p>A cobertura do nosso evento de inauguração ficou melhor do que esperávamos. Os vídeos que partilhámos nas redes trouxeram uma visibilidade enorme. Recomendo sem hesitar.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar-placeholder">AN</div>
+        <div>
+          <div class="author-name">Ana Neves</div>
+          <div class="author-role">Responsável de Marketing — GYM Force</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <span class="quote-mark">"</span>
+      <p>Trabalhámos com outros fotógrafos antes, mas a diferença é notória. A qualidade das fotografias do nosso produto transformou a nossa loja online. Vale cada cêntimo investido.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar-placeholder">PC</div>
+        <div>
+          <div class="author-name">Paula Carvalho</div>
+          <div class="author-role">Fundadora — Moda Norte</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="testimonials-nav reveal">
+    <button class="t-nav-btn" id="tPrev">←</button>
+    <button class="t-nav-btn" id="tNext">→</button>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-layout">
+    <div class="reveal">
+      <p class="section-tag">Dúvidas</p>
+      <h2 class="section-title">Perguntas <em>frequentes</em></h2>
+      <div class="divider"></div>
+      <p class="section-sub">Tem dúvidas? Estamos aqui para ajudar. Se não encontrar a resposta, contacte-nos diretamente.</p>
+      <br>
+      <a href="#contacto" class="btn-primary" style="display:inline-block; margin-top: 20px;">Falar Connosco</a>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q">
+          <h3>Como funciona a primeira visita?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">A primeira visita é totalmente gratuita e sem compromisso. Deslocamo-nos ao seu estabelecimento, conhecemos o espaço e o negócio, e fazemos algumas fotografias e vídeos de amostra. Só apresentamos orçamento depois de mostrarmos os resultados.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <h3>Em quanto tempo recebo os conteúdos?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">O prazo de entrega depende do volume e complexidade do projeto. Normalmente, um vídeo promocional está pronto em 5 a 7 dias úteis após a captação. Para pacotes mensais, mantemos um calendário editorial acordado com o cliente.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <h3>Os conteúdos ficam prontos para publicar nas redes?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">Sim. Todos os conteúdos são entregues nos formatos ideais para cada plataforma: formato quadrado, vertical (9:16) para Reels e Stories, e horizontal para YouTube ou website. Não precisa de fazer mais nada a não ser publicar.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <h3>Trabalham com qualquer tipo de negócio?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">Trabalhamos com negócios locais de todos os sectores: restaurantes, clínicas, ginásios, lojas de moda, imobiliárias, salões de beleza, oficinas, estabelecimentos de hotelaria e muito mais. Adaptamos sempre a abordagem ao contexto de cada cliente.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <h3>Posso contratar apenas fotografia ou apenas vídeo?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">Claro que sim. Os nossos pacotes são personalizáveis. Pode contratar apenas sessões de fotografia, apenas produção de vídeo, apenas som, ou qualquer combinação. Tudo é discutido e acordado previamente.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <h3>A DBSV Studios desloca-se ao nosso local?</h3>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">Sim, na grande maioria dos casos deslocamo-nos ao seu espaço. Trabalhamos em toda a região do Porto e arredores. Para projetos fora desta área, analisamos caso a caso e incluímos eventuais deslocações no orçamento.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="contact-layout">
+    <div class="contact-info reveal">
+      <p class="section-tag">Vamos trabalhar juntos</p>
+      <h2>Dê <em>vida</em><br>à sua marca.</h2>
+      <p>Preencha o formulário ou contacte-nos diretamente. Respondemos em menos de 24 horas e a primeira visita é sem custo nem compromisso.</p>
+      <div class="contact-details">
+        <div class="contact-detail">
+          <div class="detail-icon">✉️</div>
+          <div class="detail-info">
+            <label>Email</label>
+            <a href="mailto:dbsvproducoes@outlook.com">dbsvproducoes@outlook.com</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="detail-icon">📍</div>
+          <div class="detail-info">
+            <label>Área de Atuação</label>
+            <span>Porto, Braga e Grande Porto</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="detail-icon">⏱️</div>
+          <div class="detail-info">
+            <label>Tempo de Resposta</label>
+            <span>Menos de 24 horas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" placeholder="O seu nome" required />
+          </div>
+          <div class="form-group">
+            <label for="empresa">Empresa / Negócio</label>
+            <input type="text" id="empresa" placeholder="Nome do negócio" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="email@exemplo.com" required />
+          </div>
+          <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input type="tel" id="telefone" placeholder="+351 9xx xxx xxx" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="servico">Serviço de Interesse</label>
+          <select id="servico">
+            <option value="">Selecione um serviço</option>
+            <option>Vídeo Promocional</option>
+            <option>Fotografia Profissional</option>
+            <option>Produção de Som / Jingle</option>
+            <option>Conteúdo para Redes Sociais</option>
+            <option>Cobertura de Evento</option>
+            <option>Pacote Completo</option>
+            <option>Outro / Não tenho a certeza</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" rows="5" placeholder="Fale-nos um pouco sobre o seu negócio e o que procura..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Enviar Mensagem →</button>
+        <div class="form-success" id="formSuccess">✓ Mensagem enviada! Entramos em contacto em breve.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo">DBSV<span>.</span>STUDIOS</a>
+      <p>Produção profissional de som e vídeo para empresas que querem ser vistas e ouvidas. A sua marca, contada com imagem e som.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn" aria-label="Instagram">IG</a>
+        <a href="#" class="social-btn" aria-label="Facebook">FB</a>
+        <a href="#" class="social-btn" aria-label="YouTube">YT</a>
+        <a href="#" class="social-btn" aria-label="LinkedIn">LI</a>
+        <a href="#" class="social-btn" aria-label="TikTok">TK</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Serviços</h4>
+      <ul>
+        <li><a href="#servicos">Vídeo Promocional</a></li>
+        <li><a href="#servicos">Fotografia</a></li>
+        <li><a href="#som">Produção de Som</a></li>
+        <li><a href="#servicos">Redes Sociais</a></li>
+        <li><a href="#servicos">Eventos</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Empresa</h4>
+      <ul>
+        <li><a href="#como-funciona">Como Funciona</a></li>
+        <li><a href="#pacotes">Pacotes</a></li>
+        <li><a href="#testemunhos">Clientes</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="mailto:dbsvproducoes@outlook.com">dbsvproducoes@outlook.com</a></li>
+        <li><a href="#contacto">Pedir Orçamento</a></li>
+        <li><a href="#contacto">Agendar Visita</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 DBSV Studios. Todos os direitos reservados.</p>
+    <p>Feito com <span style="color:var(--gold)">♥</span> para marcas que querem crescer.</p>
+  </div>
+</footer>
+
+<script>
+  // CURSOR
+  const cursor = document.getElementById('cursor');
+  const cursorRing = document.getElementById('cursorRing');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    cursorRing.style.left = e.clientX + 'px';
+    cursorRing.style.top = e.clientY + 'px';
+  });
+  document.querySelectorAll('a, button, .video-item, .service-card, .faq-q, .testimonial').forEach(el => {
+    el.addEventListener('mouseenter', () => cursorRing.classList.add('expand'));
+    el.addEventListener('mouseleave', () => cursorRing.classList.remove('expand'));
+  });
+
+  // NAV SCROLL
+  const nav = document.getElementById('mainNav');
+  const floatingCta = document.getElementById('floatingCta');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+    floatingCta.classList.toggle('visible', window.scrollY > 400);
+  });
+
+  // MOBILE NAV
+  const navToggle = document.getElementById('navToggle');
+  navToggle.addEventListener('click', () => nav.classList.toggle('menu-open'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => nav.classList.remove('menu-open')));
+
+  // VIDEO MODAL
+  const videoItems = document.querySelectorAll('.video-item[data-video]');
+  const modal = document.getElementById('videoModal');
+  const iframe = document.getElementById('modalIframe');
+  const closeBtn = document.getElementById('modalClose');
+  videoItems.forEach(item => {
+    item.addEventListener('click', () => {
+      iframe.src = item.dataset.video + '?autoplay=1';
+      modal.classList.add('active');
+    });
+  });
+  closeBtn.addEventListener('click', () => { modal.classList.remove('active'); iframe.src = ''; });
+  modal.addEventListener('click', e => { if (e.target === modal) { modal.classList.remove('active'); iframe.src = ''; } });
+
+  // FAQ
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // TESTIMONIALS NAV
+  const tw = document.getElementById('testimonialsWrapper');
+  document.getElementById('tNext').addEventListener('click', () => tw.scrollBy({ left: 380, behavior: 'smooth' }));
+  document.getElementById('tPrev').addEventListener('click', () => tw.scrollBy({ left: -380, behavior: 'smooth' }));
+
+  // CONTACT FORM
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('formSuccess').style.display = 'block';
+    document.getElementById('contactForm').reset();
+    setTimeout(() => document.getElementById('formSuccess').style.display = 'none', 5000);
+  }
+
+  // SCROLL REVEAL
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('revealed'), 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
