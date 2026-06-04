@@ -163,12 +163,17 @@
 
     /* SOM / AUDIO */
     #som { background: var(--bg2); }
-    .audio-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .audio-visual { position: relative; }
-    .audio-img { width: 100%; aspect-ratio: 4/5; object-fit: cover; filter: brightness(0.7) saturate(0.6); }
-    .audio-badge { position: absolute; bottom: -20px; right: -20px; background: var(--gold); color: var(--bg); padding: 24px; font-family: var(--font-display); font-size: 1.2rem; letter-spacing: 1px; text-align: center; line-height: 1.2; }
-    .audio-features { display: flex; flex-direction: column; gap: 24px; margin-top: 36px; }
-    .audio-feat { display: flex; gap: 16px; align-items: flex-start; }
+    .audio-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 40px; }
+    .audio-feat { display: flex; gap: 16px; align-items: flex-start; background: var(--bg3); border: 1px solid var(--grey2); padding: 24px; transition: border-color 0.3s; }
+    .audio-feat:hover { border-color: var(--gold); }
+    .som-trabalhos { margin-top: 70px; }
+    .som-trabalhos-title { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1; margin-bottom: 8px; }
+    .som-trabalhos-title em { font-style: italic; font-family: var(--font-serif); color: var(--gold); }
+    .som-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 0; }
+    .som-placeholder { border: 2px dashed var(--grey2); padding: 50px 30px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; transition: border-color 0.3s; }
+    .som-placeholder:hover { border-color: var(--gold); }
+    .som-icon { font-size: 2.5rem; }
+    .som-placeholder p { color: var(--grey); font-size: 0.88rem; letter-spacing: 1px; }
     .feat-icon { width: 42px; height: 42px; border: 1px solid var(--gold-dim); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
     .feat-text h4 { font-size: 0.9rem; font-weight: 600; letter-spacing: 1px; margin-bottom: 4px; text-transform: uppercase; }
     .feat-text p { font-size: 0.85rem; color: var(--grey); line-height: 1.7; }
@@ -311,7 +316,6 @@
       .video-item:nth-child(2), .video-item:nth-child(3) { grid-column: span 6; }
       .video-item:nth-child(4), .video-item:nth-child(5) { grid-column: span 6; }
       .hero-stats { display: none; }
-      .audio-badge { right: 0; bottom: -16px; }
     }
     @media (max-width: 768px) {
       .nav-links, .nav-cta { display: none; }
@@ -335,8 +339,6 @@
       .video-item { grid-column: unset !important; aspect-ratio: 16/9; width: 100%; }
       .videos-intro { flex-direction: column; align-items: flex-start; gap: 16px; }
       .videos-intro .btn-secondary { width: 100%; text-align: center; }
-      .audio-img { aspect-ratio: 16/9; }
-      .audio-badge { display: none; }
       .packages-grid { grid-template-columns: 1fr; }
       .package { padding: 36px 24px; }
       .testimonial { min-width: 280px; padding: 28px; }
@@ -560,49 +562,51 @@
 
 <!-- SOM / AUDIO -->
 <section id="som">
-  <div class="audio-layout">
-    <div class="audio-visual reveal">
-      <img class="audio-img" src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=700&q=80" alt="Estúdio de gravação DBSV Studios" loading="lazy" />
-      <div class="audio-badge">ESTÚDIO<br>PROFISSIONAL</div>
-    </div>
-    <div class="audio-text reveal">
-      <p class="section-tag">Produção Sonora</p>
-      <h2 class="section-title">Som que <em>impacta</em></h2>
-      <div class="divider"></div>
-      <p class="section-sub" style="margin-bottom:0">O som é metade da experiência. Garantimos que a voz da sua marca soa exactamente como deve: clara, profissional e memorável.</p>
-      <div class="waveform">
-        <span></span><span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span><span></span>
+  <div class="reveal">
+    <p class="section-tag">Produção Sonora</p>
+    <h2 class="section-title">Som que <em>impacta</em></h2>
+    <div class="divider"></div>
+    <p class="section-sub">O som é metade da experiência. Garantimos que a voz da sua marca soa exactamente como deve: clara, profissional e memorável.</p>
+  </div>
+  <div class="audio-features reveal">
+    <div class="audio-feat">
+      <div class="feat-icon">🎵</div>
+      <div class="feat-text">
+        <h4>Jingles &amp; Identidade Sonora</h4>
+        <p>Composição e gravação de músicas e sons que ficam na memória dos seus clientes.</p>
       </div>
-      <div class="audio-features">
-        <div class="audio-feat">
-          <div class="feat-icon">🎵</div>
-          <div class="feat-text">
-            <h4>Jingles &amp; Identidade Sonora</h4>
-            <p>Composição e gravação de músicas e sons que ficam na memória dos seus clientes.</p>
-          </div>
-        </div>
-        <div class="audio-feat">
-          <div class="feat-icon">🎤</div>
-          <div class="feat-text">
-            <h4>Locução Profissional</h4>
-            <p>Vozes profissionais em Português Europeu para anúncios, vídeos e apresentações corporativas.</p>
-          </div>
-        </div>
-        <div class="audio-feat">
-          <div class="feat-icon">🎧</div>
-          <div class="feat-text">
-            <h4>Podcast &amp; Rádio</h4>
-            <p>Gravação, edição e masterização de podcasts e spots publicitários para rádio.</p>
-          </div>
-        </div>
-        <div class="audio-feat">
-          <div class="feat-icon">🔊</div>
-          <div class="feat-text">
-            <h4>Som Ambiente &amp; Pós-Produção</h4>
-            <p>Tratamento e mistura de áudio para vídeos, eliminação de ruído e masterização final.</p>
-          </div>
-        </div>
+    </div>
+    <div class="audio-feat">
+      <div class="feat-icon">🎤</div>
+      <div class="feat-text">
+        <h4>Locução Profissional</h4>
+        <p>Vozes profissionais em Português Europeu para anúncios, vídeos e apresentações corporativas.</p>
+      </div>
+    </div>
+    <div class="audio-feat">
+      <div class="feat-icon">🎧</div>
+      <div class="feat-text">
+        <h4>Podcast &amp; Rádio</h4>
+        <p>Gravação, edição e masterização de podcasts e spots publicitários para rádio.</p>
+      </div>
+    </div>
+    <div class="audio-feat">
+      <div class="feat-icon">🔊</div>
+      <div class="feat-text">
+        <h4>Som Ambiente &amp; Pós-Produção</h4>
+        <p>Tratamento e mistura de áudio para vídeos, eliminação de ruído e masterização final.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRABALHOS DE SOM -->
+  <div class="som-trabalhos reveal">
+    <h3 class="som-trabalhos-title">Trabalhos <em>de Som</em></h3>
+    <div class="divider"></div>
+    <div class="som-grid">
+      <div class="som-placeholder">
+        <span class="som-icon">🎙️</span>
+        <p>Em breve — trabalhos de produção sonora</p>
       </div>
     </div>
   </div>
