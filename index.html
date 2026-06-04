@@ -294,8 +294,9 @@
     .footer-bottom a { color: var(--gold); text-decoration: none; }
 
     /* FLOATING CTA */
-    .floating-cta { position: fixed; bottom: 32px; right: 32px; z-index: 900; background: var(--gold); color: var(--bg); padding: 14px 24px; font-weight: 700; font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; box-shadow: 0 8px 30px rgba(201,168,76,0.3); transition: all 0.2s; opacity: 0; transform: translateY(20px); }
-    .floating-cta.visible { opacity: 1; transform: translateY(0); }
+    .floating-cta { position: fixed; bottom: 32px; right: 32px; z-index: 900; background: var(--gold); color: var(--bg); padding: 14px 24px; font-weight: 700; font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; box-shadow: 0 8px 30px rgba(201,168,76,0.3); transition: all 0.4s; opacity: 0; transform: translateY(20px); pointer-events: none; }
+    .floating-cta.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .floating-cta.hide { opacity: 0; transform: translateY(20px); pointer-events: none; }
     .floating-cta:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.5); }
 
     /* SCROLL REVEAL */
@@ -929,9 +930,19 @@
   // NAV SCROLL
   const nav = document.getElementById('mainNav');
   const floatingCta = document.getElementById('floatingCta');
+  const footer = document.querySelector('footer');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
-    floatingCta.classList.toggle('visible', window.scrollY > 400);
+    const scrolled = window.scrollY > 400;
+    const footerTop = footer.getBoundingClientRect().top;
+    const nearFooter = footerTop < window.innerHeight + 20;
+    if (scrolled && !nearFooter) {
+      floatingCta.classList.add('visible');
+      floatingCta.classList.remove('hide');
+    } else {
+      floatingCta.classList.remove('visible');
+      floatingCta.classList.add('hide');
+    }
   });
 
   // MOBILE NAV
