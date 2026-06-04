@@ -137,7 +137,8 @@
     #videos { background: var(--bg3); }
     .videos-intro { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; margin-bottom: 50px; }
     .video-grid { display: grid; grid-template-columns: repeat(12, 1fr); grid-template-rows: auto; gap: 12px; }
-    .video-item { position: relative; overflow: hidden; background: #1a1a1a; cursor: pointer; }
+    .video-item { position: relative; overflow: hidden; background: #1a1a1a; cursor: pointer; border: 1px solid rgba(201,168,76,0.25); transition: border-color 0.3s; }
+    .video-item:hover { border-color: rgba(201,168,76,0.7); }
     .video-item:nth-child(1) { grid-column: span 8; grid-row: span 2; aspect-ratio: 16/9; }
     .video-item:nth-child(2) { grid-column: span 4; }
     .video-item:nth-child(3) { grid-column: span 4; }
