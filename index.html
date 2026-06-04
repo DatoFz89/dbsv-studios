@@ -316,8 +316,8 @@
     @media (max-width: 768px) {
       .nav-links, .nav-cta { display: none; }
       .nav-toggle { display: flex; }
-      nav.menu-open .nav-links { display: flex; flex-direction: column; position: fixed; inset: 0; background: var(--bg); align-items: center; justify-content: center; gap: 32px; z-index: 999; font-size: 1.1rem; }
-      nav.menu-open .nav-cta { display: block; }
+      nav.menu-open .nav-links { display: flex; flex-direction: column; position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background: #080808; background-color: #080808 !important; align-items: center; justify-content: center; gap: 32px; z-index: 9990; font-size: 1.1rem; opacity: 1 !important; }
+      nav.menu-open .nav-cta { display: block; z-index: 9991; position: relative; }
       #hero { min-height: 100svh; }
       .hero-content { padding: 0 6%; }
       .hero-title { font-size: clamp(2.8rem, 12vw, 5rem); }
@@ -921,7 +921,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2026 DBSV Studios. Todos os direitos reservados.</p>
+    <p>© 2025 DBSV Studios. Todos os direitos reservados.</p>
     <p>Feito com <span style="color:var(--gold)">♥</span> para marcas que querem crescer.</p>
   </div>
 </footer>
