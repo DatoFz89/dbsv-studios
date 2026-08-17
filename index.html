@@ -419,7 +419,6 @@
     <li><a href="#videos">Vídeos</a></li>
     <li><a href="#som">Som</a></li>
     <li><a href="#pacotes">Pacotes</a></li>
-    <li><a href="#testemunhos">Clientes</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
   <a href="#contacto" class="nav-cta">Contactar</a>
@@ -729,80 +728,6 @@
   </div>
 </section>
 
-<!-- TESTEMUNHOS -->
-<section id="testemunhos">
-  <div class="reveal">
-    <p class="section-tag">Clientes</p>
-    <h2 class="section-title">O que dizem <em>sobre nós</em></h2>
-    <div class="divider"></div>
-  </div>
-  <div class="testimonials-wrapper reveal" id="testimonialsWrapper">
-    <div class="testimonial">
-      <div class="stars">★★★★★</div>
-      <span class="quote-mark">"</span>
-      <p>Desde que a DBSV Studios criou os nossos vídeos para o Instagram, as reservas aumentaram visivelmente. O conteúdo é fantástico e a equipa percebe mesmo o que queremos transmitir.</p>
-      <div class="testimonial-author">
-        <div class="author-avatar-placeholder">MF</div>
-        <div>
-          <div class="author-name">Maria Ferreira</div>
-          <div class="author-role">Proprietária — Restaurante Solar</div>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial">
-      <div class="stars">★★★★★</div>
-      <span class="quote-mark">"</span>
-      <p>Profissionalismo de outro nível. Vieram ao nosso espaço, fizeram um trabalho excecional e entregaram tudo dentro do prazo. O jingle que criaram para nós ficou no ouvido dos clientes.</p>
-      <div class="testimonial-author">
-        <div class="author-avatar-placeholder">JC</div>
-        <div>
-          <div class="author-name">João Costa</div>
-          <div class="author-role">Diretor — Clínica Vida</div>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial">
-      <div class="stars">★★★★★</div>
-      <span class="quote-mark">"</span>
-      <p>Fui abordado pela DBSV sem compromisso, aceitei ver os resultados e fiquei impressionado. Hoje temos conteúdo consistente todos os meses e os clientes comentam sempre.</p>
-      <div class="testimonial-author">
-        <div class="author-avatar-placeholder">RS</div>
-        <div>
-          <div class="author-name">Rui Santos</div>
-          <div class="author-role">Gerente — Auto Premium</div>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial">
-      <div class="stars">★★★★★</div>
-      <span class="quote-mark">"</span>
-      <p>A cobertura do nosso evento de inauguração ficou melhor do que esperávamos. Os vídeos que partilhámos nas redes trouxeram uma visibilidade enorme. Recomendo sem hesitar.</p>
-      <div class="testimonial-author">
-        <div class="author-avatar-placeholder">AN</div>
-        <div>
-          <div class="author-name">Ana Neves</div>
-          <div class="author-role">Responsável de Marketing — GYM Force</div>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial">
-      <div class="stars">★★★★★</div>
-      <span class="quote-mark">"</span>
-      <p>Trabalhámos com outros fotógrafos antes, mas a diferença é notória. A qualidade das fotografias do nosso produto transformou a nossa loja online. Vale cada cêntimo investido.</p>
-      <div class="testimonial-author">
-        <div class="author-avatar-placeholder">PC</div>
-        <div>
-          <div class="author-name">Paula Carvalho</div>
-          <div class="author-role">Fundadora — Moda Norte</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="testimonials-nav reveal">
-    <button class="t-nav-btn" id="tPrev">←</button>
-    <button class="t-nav-btn" id="tNext">→</button>
-  </div>
-</section>
 
 <!-- FAQ -->
 <section id="faq">
@@ -963,6 +888,7 @@
         <li><a href="#som">Produção de Som</a></li>
         <li><a href="#servicos">Redes Sociais</a></li>
         <li><a href="#servicos">Eventos</a></li>
+        <li><a href="#servicos">Criação de Sites</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -970,7 +896,6 @@
       <ul>
         <li><a href="#como-funciona">Como Funciona</a></li>
         <li><a href="#pacotes">Pacotes</a></li>
-        <li><a href="#testemunhos">Clientes</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
     </div>
@@ -1037,11 +962,6 @@
       if (!wasOpen) item.classList.add('open');
     });
   });
-
-  // TESTIMONIALS NAV
-  const tw = document.getElementById('testimonialsWrapper');
-  document.getElementById('tNext').addEventListener('click', () => tw.scrollBy({ left: 380, behavior: 'smooth' }));
-  document.getElementById('tPrev').addEventListener('click', () => tw.scrollBy({ left: -380, behavior: 'smooth' }));
 
     // CONTACT FORM
   function handleSubmit(e) {
