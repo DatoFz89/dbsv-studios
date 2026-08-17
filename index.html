@@ -983,7 +983,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 DBSV Studios. Todos os direitos reservados.</p>
+    <p>© <span id="currentYear"></span> DBSV Studios. Todos os direitos reservados.</p>
     <p>Feito com <span style="color:var(--gold)">♥</span> para marcas que querem crescer.</p>
   </div>
 </footer>
@@ -991,6 +991,7 @@
 <script>
   // NAV SCROLL
   const nav = document.getElementById('mainNav');
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
   const floatingCta = document.getElementById('floatingCta');
   const footer = document.querySelector('footer');
   window.addEventListener('scroll', () => {
