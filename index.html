@@ -1043,9 +1043,29 @@
   document.getElementById('tNext').addEventListener('click', () => tw.scrollBy({ left: 380, behavior: 'smooth' }));
   document.getElementById('tPrev').addEventListener('click', () => tw.scrollBy({ left: -380, behavior: 'smooth' }));
 
-  // CONTACT FORM
+    // CONTACT FORM
   function handleSubmit(e) {
     e.preventDefault();
+
+    const nome = document.getElementById('nome').value;
+    const empresa = document.getElementById('empresa').value;
+    const email = document.getElementById('email').value;
+    const telefone = document.getElementById('telefone').value;
+    const servico = document.getElementById('servico').value;
+    const mensagem = document.getElementById('mensagem').value;
+
+    const assunto = `Pedido de orçamento — ${nome}`;
+    const corpo =
+      `Nome: ${nome}\n` +
+      `Empresa: ${empresa}\n` +
+      `Email: ${email}\n` +
+      `Telefone: ${telefone}\n` +
+      `Serviço de interesse: ${servico}\n\n` +
+      `Mensagem:\n${mensagem}`;
+
+    const mailtoLink = `mailto:dbsvproducoes@outlook.com?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(corpo)}`;
+    window.location.href = mailtoLink;
+
     document.getElementById('formSuccess').style.display = 'block';
     document.getElementById('contactForm').reset();
     setTimeout(() => document.getElementById('formSuccess').style.display = 'none', 5000);
